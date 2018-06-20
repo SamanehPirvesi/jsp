@@ -21,5 +21,5 @@ cdao.createContact(contact);
 // } else 
 // 	response.sendRedirect("./phonebook/registerContact.jsp");
 %>
-<jsp:forward page="phonebook.listOfContacts.jsp"></jsp:forward>
+<jsp:forward page="phonebook/listOfContacts.jsp"></jsp:forward>
 ${contact.name}
