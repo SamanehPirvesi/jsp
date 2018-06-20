@@ -1,12 +1,16 @@
 package com.example.model;
 
 import java.io.Serializable;
-
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 @Entity
 public class User implements Serializable {
 
@@ -21,11 +25,18 @@ public class User implements Serializable {
 	private String username;
 	private String password;
 	private boolean isLoggedIn;
+	@OneToMany(mappedBy="user",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	List<Contact> listContact=new ArrayList<>();
+	
 
 	public User() {
 
 	}
-	
+	/**
+	 * every time make the user by default isLoggedIn is false
+	 * @param username 
+	 * @param password
+	 */
 
 	public User(String username, String password) {
 		
@@ -65,6 +76,12 @@ public class User implements Serializable {
 
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+	public void addContact(Contact c) {
+		listContact.add(c);
+	}
+	public List<Contact> getListContact() {
+		return listContact;
 	}
 
 }
