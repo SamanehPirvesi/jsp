@@ -63,17 +63,18 @@ public class ContactDao {
 		return c;
 
 	}
-	public List<Contact> getContactByName(String name) {
-		List<Contact> list = null;
+	public Contact getContactByName(String name) {
+		Contact c = null;
 		Session session = HibernateUtil.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.getTransaction();
 			tx.begin();
 
-			Query query=session.createQuery("from Contact where name=:var");
+			
+			Query<Contact> query=session.createQuery("from Contact where name=:var",Contact.class);
 			query.setParameter("var", name);
-             list=query.getResultList();
+             c=(Contact) query.uniqueResult();
 			tx.commit();
 			
 		} catch (Exception ex) {
@@ -84,7 +85,7 @@ public class ContactDao {
 			session.close();
 		}
 
-		return list;
+		return c;
 
 	}
 	public boolean updateContact(Contact c ){

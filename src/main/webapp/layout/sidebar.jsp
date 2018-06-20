@@ -47,7 +47,7 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> contacts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<%=request.getContextPath()%>/phonebook/registerPhonebook.jsp">create new contact</a>
+                                    <a href="<%=request.getContextPath()%>/phonebook/registerContact.jsp">create new contact</a>
                                 </li>
                                 <li>
                                     <a href="<%=request.getContextPath()%>/phonebook/listOfContacts.jsp">contact's list</a>
