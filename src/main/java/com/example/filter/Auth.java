@@ -11,8 +11,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.example.dao.UserDao;
 import com.example.model.User;
 
 /**
@@ -42,7 +40,7 @@ public class Auth implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
           HttpServletRequest httpReq=(HttpServletRequest) request;
-      User u=    (User) httpReq.getSession().getAttribute("user");
+      User u= (User) httpReq.getSession().getAttribute("user");
      
           if(u!=null && u.isLoggedIn()== true) {
         	  chain.doFilter(request, response);
@@ -50,8 +48,6 @@ public class Auth implements Filter {
         	  HttpServletResponse res= (HttpServletResponse)response;
         	  res.sendRedirect(httpReq.getContextPath()+"/login.jsp");
           }
-		
-		
 	}
 
 	/**

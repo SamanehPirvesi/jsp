@@ -18,9 +18,10 @@ public class MainExample {
 //		c1.setUser(u);
 //		u.addContact(c);
 //		u.addContact(c1);
-		uDao.createUser(u1);
+//		uDao.createUser(u1);
 //		cdao.createContact(c);
 //		cdao.createContact(c1);
+		uDao.getListOfContact(1).stream().forEach(r->System.out.println(r.getName()));
 	}
 
 }

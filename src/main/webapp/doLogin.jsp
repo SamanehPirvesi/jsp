@@ -8,7 +8,9 @@
 	User readedUser = udao.getUserByUserName(user.getUsername());
 
 	if (readedUser != null && readedUser.getPassword().equals(user.getPassword())) {
+		readedUser.setLoggedIn(true);
 		user.setLoggedIn(true);
+		udao.updateUser( readedUser);
 		response.sendRedirect("./userPortal/userHome.jsp");
 %>
 <%-- 	<jsp:forward page="./userPortal/userHome.jsp"></jsp:forward> --%>

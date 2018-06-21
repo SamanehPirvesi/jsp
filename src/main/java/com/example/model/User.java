@@ -21,6 +21,7 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private long userId;
+	
 	@Column(unique = true)
 	private String username;
 	private String password;
@@ -82,6 +83,9 @@ public class User implements Serializable {
 	}
 	public List<Contact> getListContact() {
 		return listContact;
+	}
+	public void setListContact(List<Contact> listContact) {
+		this.listContact = listContact;
 	}
 
 }

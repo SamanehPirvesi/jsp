@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import com.example.model.Contact;
 import com.example.model.User;
 import com.example.utility.HibernateUtil;
 
@@ -108,6 +109,27 @@ public class UserDao implements Serializable{
 		return list;
 	}
 
+	public List<Contact> getListOfContact(long id){
+		
+		List<Contact> list = null;
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		try {
+			tx = session.getTransaction();
+			tx.begin();
+			Query<Contact> query = session.createQuery("from Contact where user_userId=:id ",Contact.class);
+			query.setParameter("id", id);
+			list = query.getResultList();
+			tx.commit();
+		} catch (Exception ex) {
+			tx.rollback();
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+
+	
 	
 	public boolean updateUser(User u) {
 		boolean res = false;
