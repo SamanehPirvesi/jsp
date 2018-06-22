@@ -222,6 +222,12 @@ public class UserDao implements Serializable{
 		}
 		return res;
 	}
-
-
+	public void fillUserBean( User ufb,User ub) {
+//		for (Contact c:ub.getListContact()) {
+//			System.out.println("namr"+c.getTellnumber());
+//						}
+		ub.setUserId(ufb.getUserId());
+		ub.setListContact(ufb.getListContact());
+		
+		}
 }

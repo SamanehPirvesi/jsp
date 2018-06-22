@@ -13,6 +13,9 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                welcome ${user.username}
+               ${user.userId}
+               
+           
                
             </div>
             <!-- /.container-fluid -->

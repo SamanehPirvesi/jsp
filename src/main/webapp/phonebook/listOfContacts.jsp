@@ -1,10 +1,11 @@
 <%@page import="com.example.model.User"%>
 <%@page import="com.example.model.Contact"%>
 <%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="user" class="com.example.model.User" scope="session"></jsp:useBean>
-<jsp:useBean id="udao" class="com.example.dao.UserDao" scope="page"></jsp:useBean>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,28 +41,12 @@
 </tr>
 </thead>
 <tbody>
-<%-- <% --%>
-<!-- // User readedUser = udao.getUserByUserName(user.getUsername());  -->
-<!-- // int i=0;  -->
-<!-- // for(Contact c:readedUser.getListContact()){  -->
-<!-- // i=i+1;  -->
-<%-- %>  --%>
-<!-- 	<tr> -->
-<%-- 	    <td><%out.print(i); %></td> --%>
-<%-- 	    <td><%out.print(c.getName()); %></td>	 --%>
-<%-- 		<td><%out.print(c.getTellnumber()); %></td> --%>
-<%-- 		<% 	}%> --%>
-
- User readedUser = udao.getUserByUserName(user.getUsername());
- List<Contact> list =udao.getListOfContact(readedUser.getUserId());
- user.setListContact(list);
- 
 <c:set var="i" value="1" scope="page" ></c:set>
-<c:forEach items="${ListContact}" var="u">
+<c:forEach items="${user.listContact}" var="u">
 <tr>
  <td><c:out value="${i}" /></td>
- <td><c:out value="${u.name}" /></td>
- <td><c:out value="${u.getTellnumber()}" /></td>
+ <td><c:out value="${u.name}"/></td>
+ <td><c:out value="${u.tellnumber}" /></td>
 </tr>
 <c:set var="i" value="${i + 1}" scope="page" />
 </c:forEach>
