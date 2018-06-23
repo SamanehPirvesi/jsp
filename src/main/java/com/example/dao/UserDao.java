@@ -230,4 +230,8 @@ public class UserDao implements Serializable{
 		ub.setListContact(ufb.getListContact());
 		
 		}
+	public void fillListOfCntactForUserBean(User ub) {
+		User u=getUserById(ub.getUserId());
+		ub.setListContact(u.getListContact());
+	}
 }
