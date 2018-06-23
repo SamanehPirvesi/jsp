@@ -14,7 +14,7 @@
 		udao.updateUser( readedUser);
 		udao.fillUserBean(readedUser,user);
 		response.sendRedirect("./userPortal/userHome.jsp");
-		
+	
 %>
 <%-- 	<jsp:forward page="./userPortal/userHome.jsp"></jsp:forward> --%>
 <%

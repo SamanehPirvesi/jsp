@@ -32,26 +32,35 @@
 <!-- /.panel-heading -->
 <div class="panel-body">
 <div class="table-responsive">
+
 <table class="table table-striped table-bordered table-hover">
 <thead>
 <tr>
     <th>#</th>
 	<th>Contact Name</th>
 	<th>tell_number</th>
+	<th>action</th>
 </tr>
 </thead>
 <tbody>
 <c:set var="i" value="1" scope="page" ></c:set>
 <c:forEach items="${user.listContact}" var="u">
 <tr>
+<form method="post" action="../controller/doDeleteContact.jsp">
+<input type="hidden" name="contactid" value="${u.contact_id}"/>
  <td><c:out value="${i}" /></td>
- <td><c:out value="${u.name}"/></td>
+ <td ><c:out value="${u.name}" /></td>
  <td><c:out value="${u.tellnumber}" /></td>
-</tr>
+ <td> <button type="button" class="fa fa-edit" onclick="window.location.href='../controller/editContact.jsp'"></button>
+<button type="submit" class="fa fa-trash-o" onclick="window.location.href='../controller/doDeleteContact.jsp'" ></button>
+ </td>  
+ </form>                      
+ </tr>
 <c:set var="i" value="${i + 1}" scope="page" />
 </c:forEach>
 </tbody>
 </table>
+
 </div>
 <!-- /.table-responsive -->
 </div>
