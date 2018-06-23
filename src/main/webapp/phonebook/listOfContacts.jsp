@@ -28,7 +28,7 @@
 <div class="row">
 <div class="col-lg-6">
 <div class="panel panel-default">
-<div class="panel-heading">Contacts:</div>
+<div class="panel-heading">Edit Contacts:</div>
 <!-- /.panel-heading -->
 <div class="panel-body">
 <div class="table-responsive">
@@ -51,8 +51,8 @@
  <td><c:out value="${i}" /></td>
  <td ><c:out value="${u.name}" /></td>
  <td><c:out value="${u.tellnumber}" /></td>
- <td> <button type="button" class="fa fa-edit" onclick="window.location.href='../controller/editContact.jsp'"></button>
-<button type="submit" class="fa fa-trash-o" onclick="window.location.href='../controller/doDeleteContact.jsp'" ></button>
+ <td> <button type="submit" class="fa fa-edit" formaction="./editContact.jsp"></button>
+<button type="submit" class="fa fa-trash-o" ></button>
  </td>  
  </form>                      
  </tr>

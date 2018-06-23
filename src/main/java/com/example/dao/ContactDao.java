@@ -135,6 +135,30 @@ public class ContactDao {
 		return res;
 
 	}
+	public boolean updateContactTellNumberById(long id , String tell) {
+		boolean res = false;
+		Session session = HibernateUtil.openSession();
+		Transaction tx = null;
+		try {
+			tx = session.getTransaction();
+			tx.begin();
+
+			Query query=session.createQuery("UPDATE Contact SET tellnumber=:tellnumber WHERE contact_id=:idnumber");
+			query.setParameter("tellnumber",tell);
+			query.setParameter("idnumber", id);
+		query.executeUpdate();
+			res = true;
+		} catch (Exception ex) {
+
+			tx.rollback();
+
+		} finally {
+			session.close();
+		}
+
+		return res;
+
+	}
 	public boolean deleteContact(Contact c) {
 		boolean res = false;
 		Session session = HibernateUtil.openSession();
