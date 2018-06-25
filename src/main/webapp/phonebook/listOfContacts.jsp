@@ -48,6 +48,7 @@
 <tr>
 <form method="post" action="../controller/doDeleteContact.jsp">
 <input type="hidden" name="contactid" value="${u.contact_id}"/>
+<input type="hidden" name="tell" value="${u.tellnumber}"/>
  <td><c:out value="${i}" /></td>
  <td ><c:out value="${u.name}" /></td>
  <td><c:out value="${u.tellnumber}" /></td>

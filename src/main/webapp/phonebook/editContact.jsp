@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<jsp:useBean id="user" class="com.example.model.User" scope="session"></jsp:useBean>
-		<% long id =  Long.parseLong(request.getParameter("contactid"));
+	<% long id =  Long.parseLong(request.getParameter("contactid"));
+	String tel=request.getParameter("tell");
 	request.setAttribute("contactid", id);
-	
-	%>
+	request.setAttribute("tellnumber", tel);
+		%>
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="../layout/header.jsp"></jsp:include>
@@ -35,10 +36,9 @@
 
 <input type="hidden" name="contactid" value="${contactid}"/>
 <!-- <label>New Contact Name</label> <input class="form-control" name="name" placeholder="Enter new name" > -->
-
 </div>
 <div class="form-group">
-<label>New phone_number</label> <input class="form-control"	placeholder="Enter new phone number" name="tellnumber">
+<label>New phone_number</label> <input  type="text" class="form-control" value="${tellnumber}" name="tellnumber"/>
 </div>
 <button type="submit" class="btn btn-default">Edit</button>
 <button type="reset" class="btn btn-default">Reset page</button>
